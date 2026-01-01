@@ -82,9 +82,15 @@ GEM
     connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
+    diff-lcs (1.6.2)
     drb (2.2.3)
     erb (5.0.2)
     erubi (1.13.1)
+    factory_bot (6.5.6)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.1)
+      factory_bot (~> 6.5)
+      railties (>= 6.1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -192,6 +198,23 @@ GEM
       psych (>= 4.0.0)
     reline (0.6.2)
       io-console (~> 0.5)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (7.1.1)
+      actionpack (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
+    rspec-support (3.13.6)
     securerandom (0.4.1)
     stringio (3.1.7)
     thor (1.4.0)
@@ -220,9 +243,11 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  factory_bot_rails
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 8.0.2)
+  rspec-rails (~> 7.1)
 
 BUNDLED WITH
    2.6.9

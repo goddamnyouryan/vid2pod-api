@@ -11,7 +11,7 @@ class SourcesController < ApplicationController
   end
 
   def source_params
-    params.require(:url).merge(
+    params.permit(:url).merge(
       source_type: 'video',
       platform: 'youtube',
     )
