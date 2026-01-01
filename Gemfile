@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 8.0.2'
-gem 'pg', '~> 1.1'
-gem 'puma', '>= 5.0'
+gem 'pg'
+gem 'puma'
 gem 'bootsnap', require: false
+gem 'aws-sdk-s3'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 7.1'
+  gem 'byebug'
+  gem 'rspec-rails'
   gem 'factory_bot_rails'
 end

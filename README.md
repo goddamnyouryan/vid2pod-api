@@ -1,24 +1,9 @@
-# README
+# vid2pod
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rss requirements: https://podcasters.apple.com/support/823-podcast-requirements#:~:text=RSS%20feed%20URLs%20must%20adhere,tags%20in%20podcast%20RSS%20feeds.
 
-Things you may want to cover:
+heres an example rss feed: in the vendor/maintenance-phase.xml
 
-* Ruby version
+Places potentially to market:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://www.reddit.com/r/podcasts/comments/1lhm3oy/youtube_videos_as_podcasts/

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :sources, only: [:create]
+  resources :videos, only: [:create]
+
   root 'application#default'
 end

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/static/rss/rss-stylesheet.xsl"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0">
+    <channel>
+        <title>MP After Dark</title>
+        <link>https://www.patreon.com/collection/867160</link>
+        <description>Creating podcasts!</description>
+        <atom:link href="https://www.patreon.com/rss/5902913?auth=Htkg7mYAyIku9Nui0RFVrO3_TR_JkTTS&amp;show=867160" rel="self" type="application/rss+xml"></atom:link>
+        <itunes:owner>
+            <itunes:name>MP After Dark</itunes:name>
+            <itunes:email>maintenancephase@gmail.com</itunes:email>
+        </itunes:owner>
+        <itunes:type>episodic</itunes:type>
+        <itunes:author>maintenancephase</itunes:author>
+        <itunes:explicit>false</itunes:explicit>
+        <itunes:image href="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/5902913/f3de9dbde1bb4204b409b25e6c7551ca/eyJkIjo3MiwiaCI6MTQwMCwidyI6MTQwMH0%3D/1.jpg?token-hash=IEsp0Kn8vebqLX7NHv3-it1-4h8KIYXNHlqXWkBVLL4%3D"></itunes:image>
+        <itunes:category text="Health &amp; Fitness"></itunes:category>
+        <googleplay:block>yes</googleplay:block>
+        <itunes:block>Yes</itunes:block>
+        <language>en-US</language>
+        <pubDate>Thu, 01 Jan 2026 15:24:08 GMT</pubDate>
+        <lastBuildDate>Thu, 01 Jan 2026 15:24:08 GMT</lastBuildDate>
+        <generator>Patreon</generator>
+        <image>
+            <url>https://c10.patreonusercontent.com/4/patreon-media/p/campaign/5902913/f3de9dbde1bb4204b409b25e6c7551ca/eyJkIjo3MiwiaCI6MTQwMCwidyI6MTQwMH0%3D/1.jpg?token-hash=IEsp0Kn8vebqLX7NHv3-it1-4h8KIYXNHlqXWkBVLL4%3D</url>
+            <title>MP After Dark</title>
+            <link>https://www.patreon.com/collection/867160</link>
+        </image>
+        <item>
+            <title>December bonus: THE 2025 GRIFTIES</title>
+            <link>https://www.patreon.com/posts/december-bonus-146442025</link>
+            <itunes:image href="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/5902913/f3de9dbde1bb4204b409b25e6c7551ca/eyJkIjo3MiwiaCI6MzAwMCwic3RyaXBfYWxwaGEiOjEsInciOjMwMDAsIndlYnAiOjB9/1.jpg?token-hash=DmQSp9xd-6-ndzcWkbAWbmuZ2wVUKW0RsNrhf5gpzVM%3D"></itunes:image>
+            <itunes:duration>4229</itunes:duration>
+            <description>&lt;html&gt;&lt;p&gt;Just in time for the griftiest season (new year, new you!!), it's THE 2025 GRIFTIES! Your resident grifter sifters are digging in on SkinnyTok, smart toilets and smaller portions for women and short kings. This episode is NOT end-to-end encrypted.&lt;/p&gt;&lt;p&gt;You can play the episode directly through Patreon or use our RSS feed to add it to your podcast app. &lt;a href="https://support.patreon.com/hc/en-us/articles/212055866-Subscribe-to-your-Audio-RSS-link-on-the-Patreon-app" target="_blank"&gt;Here are the instructions from Patreon.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;See you in the new year!&lt;/p&gt;&lt;p&gt;A&amp;amp;M&lt;/p&gt;&lt;/html&gt;</description>
+            <enclosure url="https://www.patreon.com/api/rss/u/Htkg7mYAyIku9Nui0RFVrO3_TR_JkTTS/e/146442025.mp3?sig=27cz2jiDT94mx960IotPuypInqtS-Xsbx91P7u1CoP8%3D" length="67658813" type="audio/mpeg"></enclosure>
+            <guid isPermaLink="false">146442025</guid>
+            <pubDate>Wed, 31 Dec 2025 08:05:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>November Bonus: Diet Scams!</title>
+            <link>https://www.patreon.com/posts/november-bonus-144170710</link>
+            <itunes:image href="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/5902913/f3de9dbde1bb4204b409b25e6c7551ca/eyJkIjo3MiwiaCI6MzAwMCwic3RyaXBfYWxwaGEiOjEsInciOjMwMDAsIndlYnAiOjB9/1.jpg?token-hash=DmQSp9xd-6-ndzcWkbAWbmuZ2wVUKW0RsNrhf5gpzVM%3D"></itunes:image>
+            <itunes:duration>2939</itunes:duration>
+            <description>&lt;html&gt;&lt;p&gt;Diets are often grifts, but some are straight up scams. This month, Mike and Aubrey are digging in on a few majorly gutsy diet cons: &lt;strong&gt;VISION DIETER GLASSES, THE iPANT,&lt;/strong&gt; and &lt;strong&gt;THE KIMKINS DIET.&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;We're so sorry this one has been delayed! Aubrey has been out dealing with a death in the family. Thank you all once again for being so kind &amp;amp; gracious. We'll be back later this month with another bonus. And &lt;strong&gt;&lt;a href="https://forms.gle/7DHg2fDiHUfkp9ET6" target="_blank"&gt;don't forget to submit your nominees for this year's Grifties!&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;You can play the episode directly through Patreon or use our RSS feed to add it to your podcast app. &lt;a href="https://support.patreon.com/hc/en-us/articles/212055866-Subscribe-to-your-Audio-RSS-link-on-the-Patreon-app" target="_blank"&gt;Here are the instructions from Patreon.&lt;/a&gt;&lt;/p&gt;&lt;p&gt;See you next month with THE 2025 GRIFTIES!&lt;/p&gt;&lt;p&gt;A&amp;amp;M&lt;/p&gt;&lt;/html&gt;</description>
+            <enclosure url="https://www.patreon.com/api/rss/u/Htkg7mYAyIku9Nui0RFVrO3_TR_JkTTS/e/144170710.mp3?sig=5ZIOGSJYqHGcgPCZUTwZoX413nm_FHMEyPixxjTID50%3D" length="47009958" type="audio/mpeg"></enclosure>
+            <guid isPermaLink="false">144170710</guid>
+            <pubDate>Mon, 15 Dec 2025 08:19:01 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
