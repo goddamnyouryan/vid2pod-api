@@ -1,5 +1,18 @@
 class VideosController < ApplicationController
   def create
+    case classifier.link_type
+    when :video
+      add_to_default_feed
+    when :playlist
+      # TODO create new feed and associate all videos with it
+    when :channel
+      # similar to playlist but for the channel
+    else
+      # TODO impliment something here for sure
+    end
+  end
+
+  def add_to_default_feed
     @feed = find_or_create_feed
     @video = @feed.videos.create! video_params
 
@@ -37,7 +50,11 @@ class VideosController < ApplicationController
   def video_params
     {
       url: url,
-      platform: 'youtube',
+      platform: classifier.platform,
     }
+  end
+
+  def classifier
+    @classifier ||= VideoClassifier.new(url: url)
   end
 end
