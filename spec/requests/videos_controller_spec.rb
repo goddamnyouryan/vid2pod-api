@@ -6,18 +6,18 @@ RSpec.describe 'VideosController', type: :request do
     let!(:feed) { Feed.create!(name: 'Test Feed') }
     let(:url) { 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' }
     let(:valid_params) do
-      { url: url }
+      { url: url, feed_id: feed.id }
     end
 
     context 'when creating a video with valid parameters' do
       it 'creates a new video associated with the feed' do
         expect {
-          post feed_videos_path(feed), params: valid_params
+          post videos_path, params: valid_params
         }.to change(Video, :count).by(1)
       end
 
       it 'creates the video with the correct attributes' do
-        post feed_videos_path(feed), params: valid_params
+        post videos_path, params: valid_params
 
         video = Video.last
         expect(video.url).to eq(url)
@@ -25,7 +25,7 @@ RSpec.describe 'VideosController', type: :request do
       end
 
       it 'associates the video with the feed' do
-        post feed_videos_path(feed), params: valid_params
+        post videos_path, params: valid_params
 
         video = Video.last
         expect(video.feed).to be_present
@@ -33,13 +33,13 @@ RSpec.describe 'VideosController', type: :request do
       end
 
       it 'returns a 201 created status' do
-        post feed_videos_path(feed), params: valid_params
+        post videos_path, params: valid_params
 
         expect(response).to have_http_status(:created)
       end
 
       it 'returns JSON with the video id, feed_id, and url' do
-        post feed_videos_path(feed), params: valid_params
+        post videos_path, params: valid_params
 
         video = Video.last
         json_response = JSON.parse(response.body)
@@ -51,7 +51,7 @@ RSpec.describe 'VideosController', type: :request do
 
       it 'does not create a new feed' do
         expect {
-          post feed_videos_path(feed), params: valid_params
+          post videos_path, params: valid_params
         }.not_to change(Feed, :count)
       end
     end

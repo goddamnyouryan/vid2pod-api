@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   def create
-    @feed = Feed.find params[:feed_id]
+    @feed = find_or_create_feed
     @video = @feed.videos.create! video_params
 
     VideoMetadataFetcherJob.perform_later(@video.id)
@@ -21,6 +21,14 @@ class VideosController < ApplicationController
   end
 
   private
+
+  def find_or_create_feed
+    if params[:feed_id]
+      Feed.find params[:feed_id]
+    else
+      Feed.create!(name: 'Default')
+    end
+  end
 
   def url
     params.require(:url)
