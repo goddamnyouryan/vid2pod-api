@@ -42,10 +42,13 @@ Rails.application.configure do
   config.active_record.query_log_tags_enabled = true
 
   # Highlight code that enqueued background job in logs.
-  config.active_job.verbose_enqueue_logs = true
+  config.active_job.verbose_enqueue_logs = false
 
   # Use Solid Queue for background jobs
   config.active_job.queue_adapter = :solid_queue
+
+  # Reduce Solid Queue polling noise in development
+  config.solid_queue.silence_polling = true
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

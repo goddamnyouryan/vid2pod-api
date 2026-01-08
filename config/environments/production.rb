@@ -49,6 +49,10 @@ Rails.application.configure do
   # Replace the default in-process and non-durable queuing backend for Active Job.
   config.active_job.queue_adapter = :solid_queue
 
+  # Reduce Solid Queue logging noise
+  config.active_job.verbose_enqueue_logs = false
+  config.solid_queue.silence_polling = true
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
