@@ -20,9 +20,15 @@ class VideoDownloaderJob < ApplicationJob
 
     # Clean up temp file
     File.delete(file_path) if File.exist?(file_path)
+
+    Rails.logger.info("Download completed for video #{video_id}: #{video.url}")
   rescue StandardError => e
     download.update!(status: 'failed')
-    Rails.logger.error("Download failed for video #{video_id}: #{e.message}")
+
+    Rails.logger.error("Download failed for video #{video_id} (#{video.url}): #{e.class}: #{e.message}")
+    Rails.logger.error(e.backtrace.join("\n")) if e.backtrace
+
+    # Re-raise for exception monitoring to capture
     raise
   end
 end

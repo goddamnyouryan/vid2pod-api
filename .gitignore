@@ -32,3 +32,6 @@
 /config/master.key
 
 .byebug_history
+
+# ignore for now youtube cookies i am using to run yt-dlp on heroku
+credentials/

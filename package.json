@@ -1,0 +1,10 @@
+{
+  "name": "vid2pod-nodejs-runtime",
+  "version": "1.0.0",
+  "description": "Node.js runtime for yt-dlp",
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "private": true
+}
