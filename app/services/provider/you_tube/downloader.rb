@@ -38,9 +38,9 @@ class Provider::YouTube::Downloader < Provider::YouTube::Base
         '-x',
         '--audio-format', 'mp3',
         '--audio-quality', '0',  # Best quality
-        '-o', Shellwords.escape(output_template),
+        '-o', output_template,
         url
-      ].join(' ')
+      ]
     end
   end
 end

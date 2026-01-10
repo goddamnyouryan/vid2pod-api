@@ -27,8 +27,8 @@ class Provider::YouTube::Metadata < Provider::YouTube::Base
         '--user-agent', user_agent,
         '--skip-download',
         '-j',  # returns json dump
-        Shellwords.escape(url)
-      ].join(' ')
+        url
+      ]
     end
   end
 end

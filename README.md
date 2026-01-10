@@ -1,7 +1,6 @@
 # vid2pod
 The rails json API for vid2pod.fm, a tool that converts video links (i.e. youtube, tiktok etc) into podcast rss files so you can consume these videos as podcasts in your favorite podcast player.
 
-
 ## yt-dlp cookies
 This app uses yt-dlp buildpacks on heroku to download the audio from youtube. We use actual user account cookie data to make this more reliable. To generate new cookie data please do the following:
 
@@ -34,3 +33,7 @@ heres an example rss feed: in the vendor/maintenance-phase.xml
 
 ## Marketing
 https://www.reddit.com/r/podcasts/comments/1lhm3oy/youtube_videos_as_podcasts/
+
+
+# TODO
+Play a sound or a tone at the beginning and end of each podcast. And maybe have a voice announce the title, author and duration of a video.
