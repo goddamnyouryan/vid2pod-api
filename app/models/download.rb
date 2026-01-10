@@ -9,16 +9,15 @@ class Download < ApplicationRecord
   def file_url
     return nil unless file.attached?
 
-    rails_blob_url(file, **default_url_options)
-  end
-
-  private
-
-  def default_url_options
+    # In production, this will use the CloudFront CDN (downloads.vid2pod.fm)
+    # via the asset_host configured in production.rb
+    # In development, this will use localhost
     if Rails.env.production?
-      { host: 'downloads.vid2pod.fm', protocol: 'https', port: nil }
+      # Use CloudFront URL for production
+      rails_blob_url(file, host: 'downloads.vid2pod.fm', protocol: 'https')
     else
-      { host: 'localhost', protocol: 'http', port: 3000 }
+      # Use localhost for development
+      rails_blob_url(file, host: 'localhost', protocol: 'http', port: 3000)
     end
   end
 end

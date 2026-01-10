@@ -13,6 +13,8 @@ amazon:
   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   region: <%= ENV['AWS_REGION'] || 'us-east-1' %>
   bucket: <%= ENV['AWS_BUCKET'] %>
+  # Use CloudFront CDN for production
+  public: true
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:

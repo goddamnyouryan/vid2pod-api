@@ -16,7 +16,8 @@ Rails.application.configure do
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.asset_host = "http://assets.example.com"
+  # Use CloudFront CDN for ActiveStorage files
+  config.asset_host = "https://downloads.vid2pod.fm"
 
   # Store uploaded files on Amazon S3 (see config/storage.yml for options).
   config.active_storage.service = :amazon
