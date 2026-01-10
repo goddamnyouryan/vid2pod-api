@@ -9,9 +9,9 @@ xml.tag!('rss',
 ) do
   xml.channel do
     # Channel metadata
-    xml.title @feed.name
+    xml.title 'vid2pod.fm video feed'
     xml.link url_for(controller: 'feeds', action: 'show', id: @feed.id, format: :xml, only_path: false)
-    xml.description "Podcast feed for #{@feed.name}"
+    xml.description "the videos that the user has added to their vid2pod.fm feed"
     xml.tag!('atom:link',
       href: url_for(controller: 'feeds', action: 'show', id: @feed.id, format: :xml, only_path: false),
       rel: 'self',

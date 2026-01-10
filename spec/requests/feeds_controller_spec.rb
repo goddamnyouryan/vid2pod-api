@@ -30,7 +30,7 @@ RSpec.describe "FeedsController", type: :request do
 
     describe 'channel metadata' do
       it 'renders channel title' do
-        expect(xml.at_xpath('//channel/title').text).to eq('Test Podcast Feed')
+        expect(xml.at_xpath('//channel/title').text).to eq('vid2pod.fm video feed')
       end
 
       it 'renders channel link' do
@@ -39,7 +39,7 @@ RSpec.describe "FeedsController", type: :request do
       end
 
       it 'renders channel description' do
-        expect(xml.at_xpath('//channel/description').text).to eq('Podcast feed for Test Podcast Feed')
+        expect(xml.at_xpath('//channel/description').text).to eq('the videos that the user has added to their vid2pod.fm feed')
       end
 
       it 'renders atom self-reference link' do
