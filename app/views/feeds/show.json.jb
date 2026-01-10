@@ -3,7 +3,7 @@
   name: @feed.name,
   created_at: @feed.created_at,
   updated_at: @feed.updated_at,
-  videos: @feed.videos.order(published_at: :desc, created_at: :desc).map do |video|
+  videos: @videos.map do |video|
     {
       id: video.id,
       title: video.title,

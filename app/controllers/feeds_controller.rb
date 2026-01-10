@@ -8,6 +8,7 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find params[:id]
+    @videos = @feed.videos.order(created_at: :desc)
 
     respond_to do |format|
       format.xml { render :show }

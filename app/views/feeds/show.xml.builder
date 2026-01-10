@@ -30,7 +30,7 @@ xml.tag!('rss',
     xml.generator 'vid2pod'
 
     # Episodes (items)
-    @feed.videos.order(published_at: :desc, created_at: :desc).each do |video|
+    @videos.each do |video|
       xml.item do
         xml.title video.title || 'Untitled'
         xml.link video.url
