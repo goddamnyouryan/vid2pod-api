@@ -5,6 +5,11 @@ class Video < ApplicationRecord
   belongs_to :feed
   has_one :download, dependent: :destroy
 
+  # Redownload video and reprocess with current audio settings (e.g., intro)
+  def redownload!
+    VideoDownloaderJob.perform_later(id, reprocess: true)
+  end
+
   # Estimate MP3 file size based on duration
   # Assumes 128kbps bitrate (typical for YouTube audio)
   def estimated_file_size

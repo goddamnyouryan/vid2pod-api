@@ -4,7 +4,9 @@
       "Bash(bundle exec rspec:*)",
       "Bash(grep:*)",
       "WebSearch",
-      "Bash(bin/rails runner:*)"
+      "Bash(bin/rails runner:*)",
+      "Bash(say:*)",
+      "Bash(ffmpeg:*)"
     ]
   }
 }
