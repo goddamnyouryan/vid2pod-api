@@ -5,7 +5,7 @@ class Provider::YouTube::Metadata < Provider::YouTube::Base
 
       command = build_command(url, cookies_file)
 
-      stdout, stderr, status = Open3.capture3(command)
+      stdout, stderr, status = Open3.capture3(*command)
 
       unless status.success?
         error_message = parse_error(stderr)
