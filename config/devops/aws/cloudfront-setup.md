@@ -30,23 +30,40 @@ CloudFront CDN is configured to serve MP3 files from the S3 bucket `downloads.vi
 
 ## Architecture Flow
 
-1. User requests: `https://downloads.vid2pod.fm/[s3-object-key]`
-   - Example: `https://downloads.vid2pod.fm/iciupxn88pk8edzw43lp26jg0rmm`
+1. User requests: `https://downloads.vid2pod.fm/feed-uuid/video-uuid.mp3`
+   - Example: `https://downloads.vid2pod.fm/a1b2c3d4-feed/f9e8d7c6-video.mp3`
 2. DNS (Cloudflare) resolves to CloudFront distribution
 3. CloudFront checks edge cache for the file
 4. If not cached, CloudFront fetches from S3 using OAC
 5. File is cached at edge location and served to user
 6. Subsequent requests are served from cache (faster)
 
-**Important:** URLs must use the S3 object key directly (from `file.key` in ActiveStorage), NOT Rails routing paths (like `/rails/active_storage/blobs/redirect/...`). CloudFront serves files directly from S3, not through the Rails app.
+**S3 Object Key Structure:**
+Files are stored with a custom key: `feed_uuid/video_uuid.mp3`
+
+This provides:
+- Clean, semantic URLs
+- Easy organization by feed in S3
+- Ability to identify feed/video from URL alone
 
 **Rails Implementation:**
 ```ruby
+# In app/jobs/video_downloader_job.rb
+download.file.attach(
+  io: File.open(file_path),
+  filename: "#{video.id}.mp3",
+  content_type: 'audio/mpeg',
+  key: "#{video.feed.id}/#{video.id}.mp3"
+)
+
 # In app/models/download.rb
 def file_url
   "https://downloads.vid2pod.fm/#{file.key}"
+  # Returns: https://downloads.vid2pod.fm/feed-uuid/video-uuid.mp3
 end
 ```
+
+**Important:** URLs use the S3 object key directly (from `file.key` in ActiveStorage), NOT Rails routing paths (like `/rails/active_storage/blobs/redirect/...`). CloudFront serves files directly from S3, not through the Rails app.
 
 ## Security
 

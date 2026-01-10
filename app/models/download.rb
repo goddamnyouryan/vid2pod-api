@@ -10,8 +10,9 @@ class Download < ApplicationRecord
     return nil unless file.attached?
 
     if Rails.env.production?
-      # Use direct CloudFront URL with S3 object key
-      # file.key returns just the S3 object key (e.g., "iciupxn88pk8edzw43lp26jg0rmm")
+      # Use direct CloudFront URL with custom S3 object key
+      # file.key returns the custom key: "feed_uuid/video_uuid.mp3"
+      # Example URL: https://downloads.vid2pod.fm/abc123-feed-uuid/def456-video-uuid.mp3
       "https://downloads.vid2pod.fm/#{file.key}"
     else
       # Use localhost Rails routing for development

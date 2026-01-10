@@ -39,7 +39,7 @@ This directory contains configuration files and documentation for the vid2pod AW
 ```
 User Request (HTTPS)
     ↓
-downloads.vid2pod.fm (Cloudflare DNS)
+downloads.vid2pod.fm/feed-uuid/video-uuid.mp3 (Cloudflare DNS)
     ↓
 CloudFront Distribution (E4WMP9IYV6KIP)
     ↓ (via Origin Access Control)
@@ -47,6 +47,23 @@ S3 Bucket (downloads.vid2pod.fm) - PRIVATE
     ↑
 Rails App (uploads MP3 files)
 ```
+
+### S3 Object Key Structure
+
+Files are stored with a custom key structure for clean, semantic URLs:
+```
+feed-uuid/video-uuid.mp3
+```
+
+**Example:**
+- S3 Key: `a1b2c3d4-e5f6-7890-abcd-ef1234567890/f9e8d7c6-b5a4-3210-9876-543210fedcba.mp3`
+- CloudFront URL: `https://downloads.vid2pod.fm/a1b2c3d4-e5f6-7890-abcd-ef1234567890/f9e8d7c6-b5a4-3210-9876-543210fedcba.mp3`
+
+This structure provides:
+- Semantic organization by feed
+- Easy identification of feed/video from URL
+- Natural hierarchical grouping in S3
+- Clean, shareable download links
 
 ## Common Tasks
 
@@ -132,7 +149,7 @@ def file_url
 
   if Rails.env.production?
     # Use direct CloudFront URL with S3 object key
-    # file.key returns just the S3 object key without domain/bucket
+    # file.key returns the custom key: "feed_uuid/video_uuid.mp3"
     "https://downloads.vid2pod.fm/#{file.key}"
   else
     # Use localhost Rails routing for development
@@ -141,7 +158,17 @@ def file_url
 end
 ```
 
-This generates direct URLs like `https://downloads.vid2pod.fm/iciupxn88pk8edzw43lp26jg0rmm` which CloudFront can serve directly from S3.
+Files must be attached with a custom key in VideoDownloaderJob:
+```ruby
+download.file.attach(
+  io: File.open(file_path),
+  filename: "#{video.id}.mp3",
+  content_type: 'audio/mpeg',
+  key: "#{video.feed.id}/#{video.id}.mp3"
+)
+```
+
+This generates clean URLs like `https://downloads.vid2pod.fm/feed-uuid/video-uuid.mp3` which CloudFront can serve directly from S3.
 
 ### ACL Errors in Production
 

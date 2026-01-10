@@ -9,11 +9,12 @@ class VideoDownloaderJob < ApplicationJob
     # Download audio to temp file
     file_path = Provider::YouTube::Downloader.download(video.url)
 
-    # Attach to ActiveStorage
+    # Attach to ActiveStorage with custom S3 key structure: feed_uuid/video_uuid.mp3
     download.file.attach(
       io: File.open(file_path),
-      filename: "#{video_id}.mp3",
-      content_type: 'audio/mpeg'
+      filename: "#{video.id}.mp3",
+      content_type: 'audio/mpeg',
+      key: "#{video.feed.id}/#{video.id}.mp3"
     )
 
     download.update!(status: 'completed')
