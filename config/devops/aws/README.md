@@ -124,16 +124,16 @@ aws s3api put-bucket-versioning \
 
 **Cause:** The URL uses Rails routing (`/rails/active_storage/blobs/redirect/...`) which requires the Rails app to handle the request. CloudFront is configured to serve files directly from S3, not proxy to the Rails app.
 
-**Solution:** The Download model must generate direct S3 URLs (not Rails routing URLs). The `file_url` method should use `file.url` and replace the S3 hostname with the CloudFront domain:
+**Solution:** The Download model must generate direct S3 URLs (not Rails routing URLs). The `file_url` method should use `file.key` to get the S3 object key and construct the CloudFront URL:
 
 ```ruby
 def file_url
   return nil unless file.attached?
 
   if Rails.env.production?
-    # Use direct S3 URL via CloudFront
-    s3_url = file.url
-    s3_url.gsub(/https?:\/\/[^\/]+/, 'https://downloads.vid2pod.fm')
+    # Use direct CloudFront URL with S3 object key
+    # file.key returns just the S3 object key without domain/bucket
+    "https://downloads.vid2pod.fm/#{file.key}"
   else
     # Use localhost Rails routing for development
     rails_blob_url(file, host: 'localhost', protocol: 'http', port: 3000)
@@ -141,7 +141,7 @@ def file_url
 end
 ```
 
-This generates direct URLs like `https://downloads.vid2pod.fm/actual-s3-key-path.mp3` which CloudFront can serve.
+This generates direct URLs like `https://downloads.vid2pod.fm/iciupxn88pk8edzw43lp26jg0rmm` which CloudFront can serve directly from S3.
 
 ### ACL Errors in Production
 

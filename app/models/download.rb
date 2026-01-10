@@ -10,10 +10,9 @@ class Download < ApplicationRecord
     return nil unless file.attached?
 
     if Rails.env.production?
-      # Use direct S3 URL via CloudFront
-      # file.url generates direct S3 path, we replace S3 hostname with CloudFront domain
-      s3_url = file.url
-      s3_url.gsub(/https?:\/\/[^\/]+/, 'https://downloads.vid2pod.fm')
+      # Use direct CloudFront URL with S3 object key
+      # file.key returns just the S3 object key (e.g., "iciupxn88pk8edzw43lp26jg0rmm")
+      "https://downloads.vid2pod.fm/#{file.key}"
     else
       # Use localhost Rails routing for development
       rails_blob_url(file, host: 'localhost', protocol: 'http', port: 3000)

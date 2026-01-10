@@ -30,14 +30,23 @@ CloudFront CDN is configured to serve MP3 files from the S3 bucket `downloads.vi
 
 ## Architecture Flow
 
-1. User requests: `https://downloads.vid2pod.fm/[s3-key-path]/file.mp3`
+1. User requests: `https://downloads.vid2pod.fm/[s3-object-key]`
+   - Example: `https://downloads.vid2pod.fm/iciupxn88pk8edzw43lp26jg0rmm`
 2. DNS (Cloudflare) resolves to CloudFront distribution
 3. CloudFront checks edge cache for the file
 4. If not cached, CloudFront fetches from S3 using OAC
 5. File is cached at edge location and served to user
 6. Subsequent requests are served from cache (faster)
 
-**Important:** URLs must be direct S3 paths (like `https://downloads.vid2pod.fm/abc123/file.mp3`), NOT Rails routing paths (like `/rails/active_storage/blobs/redirect/...`). CloudFront serves files directly from S3, not through the Rails app.
+**Important:** URLs must use the S3 object key directly (from `file.key` in ActiveStorage), NOT Rails routing paths (like `/rails/active_storage/blobs/redirect/...`). CloudFront serves files directly from S3, not through the Rails app.
+
+**Rails Implementation:**
+```ruby
+# In app/models/download.rb
+def file_url
+  "https://downloads.vid2pod.fm/#{file.key}"
+end
+```
 
 ## Security
 
