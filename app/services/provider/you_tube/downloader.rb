@@ -30,6 +30,7 @@ class Provider::YouTube::Downloader < Provider::YouTube::Base
       [
         'yt-dlp',
         '--js-runtimes', 'node',
+        '--remote-components', 'ejs:github',
         '--cookies', cookies_file.to_s,
         '--user-agent', user_agent,
         '--retries', '3',
