@@ -10,6 +10,8 @@ gem 'rack-cors'
 gem 'builder'
 gem 'jb'
 gem 'solid_queue'
+gem 'sprockets-rails'
+gem 'mission_control-jobs'
 
 group :development, :test do
   gem 'byebug'
