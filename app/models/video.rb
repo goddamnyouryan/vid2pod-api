@@ -10,6 +10,17 @@ class Video < ApplicationRecord
     VideoDownloaderJob.perform_later(id, reprocess: true)
   end
 
+  def description_template
+    if description
+      %{
+        Originally downloaded from: #{url}
+        #{description}
+      }
+    else
+      'No description found'
+    end
+  end
+
   # Estimate MP3 file size based on duration
   # Assumes 128kbps bitrate (typical for YouTube audio)
   def estimated_file_size

@@ -40,7 +40,7 @@ xml.tag!('rss',
         xml.tag!('itunes:duration', video.duration) if video.duration.present?
 
         # Description
-        xml.description { xml.cdata!(video.description || '') }
+        xml.description { xml.cdata!(video.description_template) }
 
         # Enclosure (audio file from download)
         if video.download&.status == 'completed' && video.download.file.attached?

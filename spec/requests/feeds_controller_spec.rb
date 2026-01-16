@@ -112,7 +112,7 @@ RSpec.describe "FeedsController", type: :request do
           description_node = xml.xpath('//item/description').first
           cdata_node = description_node.children.find { |child| child.is_a?(Nokogiri::XML::CDATA) }
           expect(cdata_node).not_to be_nil
-          expect(description_node.text.strip).to eq('')
+          expect(description_node.text.strip).to eq('No description found')
         end
 
         it 'renders item guid with video id' do
@@ -158,7 +158,7 @@ RSpec.describe "FeedsController", type: :request do
         end
 
         it 'renders item description with HTML in CDATA' do
-          expect(xml.xpath('//item/description').first.text.strip).to eq('<p>This is the <strong>first</strong> episode</p>')
+          expect(xml.xpath('//item/description').first.text.strip).to match('<p>This is the <strong>first</strong> episode</p>')
         end
 
         it 'renders itunes:image' do
